@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    const isConfirmed = confirm('Вы точно хотите выйти?'); // ✅ Добавил подтверждение выхода
+    const isConfirmed = confirm('Вы точно хотите выйти?'); 
     if (isConfirmed) {
       logout();
     }
