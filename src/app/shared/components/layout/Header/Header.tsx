@@ -7,13 +7,13 @@ import { Cart } from '@/app/shared/icons/Cart';
 import cn from 'classnames';
 import { useState } from 'react';
 import { Search } from '@/app/shared/icons/Search';
-import { useBasketStore } from '@/app/core/providers/basketProvider';
+import { useLoginStore } from '@/app/core/providers/loginProvider';
 
 const Header = () => {
   const [isActiveInput, setIsActiveInput] = useState<boolean>(false);
-  const setUsername = useBasketStore(store => store.setUsername);
-  const username = useBasketStore(store => store.username);
-  const logout = useBasketStore(store => store.logout);
+  const setUsername = useLoginStore(store => store.setUsername);
+  const username = useLoginStore(store => store.username);
+  const logout = useLoginStore(store => store.logout);
 
   const handleLogin = () => {
     const newUsername = prompt('Введите ваш никнейм:');

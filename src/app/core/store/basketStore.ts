@@ -5,29 +5,18 @@
   // типизация состояния
   export type BasketState = {
     basketItems: number[];
-    username: string;
   };
 
   // типизация экшнов
   export type BasketActions = {
     basketAction: (id: number) => void;
-    setUsername: (newUsername:string) => void;
-    logout: () => void; 
   };
 
   export type BasketStore = BasketState & BasketActions;
 
-  const getStoredUsername = () => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('username') || '';
-    }
-    return '';
-  };
-
   // начальное состояние
   export const defaultInitState: BasketState = {
     basketItems: [],
-    username: getStoredUsername()
   };
 
   // инициализация начального состояния
@@ -44,14 +33,6 @@
             ? state.basketItems.filter(e => e !== id)
             : state.basketItems.concat(id),
         })),
-        setUsername: (newUsername: string) => {
-          localStorage.setItem('username', newUsername); 
-          set(() => ({ username: newUsername }));
-        },
-        logout: () => {
-          localStorage.removeItem('username');
-          set(() => ({ username: '' }));
-        },
     }));
   };
 

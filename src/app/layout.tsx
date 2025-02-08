@@ -6,6 +6,7 @@ import Footer from './shared/components/layout/Footer/Footer';
 import { FavoriteStoreProvider } from './core/providers/favoriteProvider';
 import { BasketStoreProvider } from './core/providers/basketProvider';
 import { DislikeStoreProvider } from './core/providers/dislikeProvider';
+import { LoginStoreProvider} from './core/providers/loginProvider'; 
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -39,11 +40,13 @@ export default function RootLayout({
         <DislikeStoreProvider>
           <FavoriteStoreProvider>
             {/* Все что внутри - имеет доступ к данным провайдера */}
+            <LoginStoreProvider>
             <BasketStoreProvider>
               <Header />
               {children}
               <Footer />
             </BasketStoreProvider>
+            </LoginStoreProvider>
           </FavoriteStoreProvider>
         </DislikeStoreProvider>
       </body>
